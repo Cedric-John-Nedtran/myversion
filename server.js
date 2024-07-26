@@ -19,13 +19,6 @@ app.use(express.static('public'))
 // view engine
 app.set('view engine', 'ejs')
 
-//routes
-app.use('/user', userRoutes, (req, res) => res.render('login'))
-app.use('/user', userRoutes)
-app.use('/admin', adminRoutes)
-app.use('/admin', adminRoutes)
-app.use('/employee', employeeRoutes)
-
 //database connection
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
@@ -40,3 +33,35 @@ mongoose.connect(process.env.MONGO_URI)
             res.status(500).json({ error: error.message })
         })
     })
+
+app.use((req, res, next) => {
+    res.locals.path = req.path;
+    next();
+});
+
+//routes
+app.get('/', (req, res)=>{          //blank link leads to the sign up page
+    res.redirect('/user/login');
+})
+
+app.get('/user/login', userRoutes, (req, res) => 
+    res.render('userLogin', {title: "User Log-in"}));  //Log in Page for Users
+
+app.get('/admin/login', adminRoutes, (req, res) => 
+    res.render('adminLogin', {title: "Admin Log-in"})); //Log in Page for Admin
+
+app.get('/user/signup', userRoutes, (req,res) =>{
+    res.render('userSignup', {title: 'User Sign-up'});  // Sign up page for users
+});
+
+app.get('/employee/login', employeeRoutes, (req, res)=>{
+    res.render('employeeLogin', {title: 'Employee Log-in'}); //Log in for Employees
+});
+
+app.get('/employee/signup', employeeRoutes, (req, res)=>{
+    res.render('employeeSignup', {title: 'Employee Sign-up'}); //Sign up for Employees
+})
+
+app.use((req, res) =>{                  // 404 error otherwise
+    res.status(404).render('404', {title:'404'});
+});

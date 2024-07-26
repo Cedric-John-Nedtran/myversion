@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SEAPPS | <%= title %></title>
+      </head>
+    
+    <body>
+    <h1> SERVICE ECONOMY APPLICATION INCORPORATED</h1>
+    <h2> Employee Log-in</h2>
+        <div class="create-login content">
+            <form action="/login" method="POST">
+              <label for="email">Email: </label>
+              <input type="text" id="email" name="email" required>
+              <br> <br>
+              <label for="password">Password:</label>
+              <input type="text" id="password" name="password" required>
+            
+              <a href="/employee/signup"> Sign-up</a>
+              <button>Log-in</button> 
+
+              <p> Not an Employee?</p>
+              <a href="/admin/login"> Log-in as Admin</a>
+              <a href="/user/login"> Log-in as User</a>
+            </form>
+          </div>
+    </body>
+</html>

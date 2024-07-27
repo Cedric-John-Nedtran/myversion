@@ -13,24 +13,12 @@ const employeeRoutes = require('./routes/employeeRoutes');
 const app = express();
 
 //middleware
-<<<<<<< HEAD
 app.use(express.json())
-app.use(express.static('public'))
-=======
-app.use(express.json());
->>>>>>> 885c4e64122292216833443c148a0f07c4e78bcb
+app.use(express.static('public'));      // to access the public folder for the css and images
 
 // view engine
 app.set('view engine', 'ejs');
 
-<<<<<<< HEAD
-=======
-//routes
-app.use('/user', userRoutes);
-app.use('/admin', adminRoutes);
-app.use('/employee', employeeRoutes);
-
->>>>>>> 885c4e64122292216833443c148a0f07c4e78bcb
 //database connection
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
@@ -44,7 +32,6 @@ mongoose.connect(process.env.MONGO_URI)
         app.use((req, res) => {
             res.status(500).json({ error: error.message });
         })
-<<<<<<< HEAD
     })
 
 app.use((req, res, next) => {
@@ -78,6 +65,3 @@ app.get('/employee/signup', employeeRoutes, (req, res)=>{
 app.use((req, res) =>{                  // 404 error otherwise
     res.status(404).render('404', {title:'404'});
 });
-=======
-    });
->>>>>>> 885c4e64122292216833443c148a0f07c4e78bcb

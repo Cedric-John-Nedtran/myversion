@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SEAPPS | <%= title %></title>
-      </head>
-    
-    <body>
-    <h1> SERVICE ECONOMY APPLICATION INCORPORATED</h1>
-    <h2> User Sign-up</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEAPPS: <%= title%></title>
+</head>
+<body>
+    <nav>
+        <h1><a href="/"> Service Economy Application</a></h1>
+    </nav>
+        <h2> User Sign-up</h2>
         <div class="create-signup content">
             <form action="/signup" method="POST">
               <label for="name">Full name </label>
               <input type="text" id="name" name="name" required>
               <br> <br>
               
+              <label for="email">Email </label>
+              <input type="text" id="email" name="email" required>
+              <br> <br>
+
               <label for="password">Password: </label>
               <input type="text" id="password" name="password" required>
               <br> <br>
@@ -25,5 +30,6 @@
               <button>Create Account</button> 
             </form>
           </div>
-    </body>
-</html>
+          <footer> Copyright &copy; Service Economy Application Incorporated</footer>
+        </body>
+    </html>

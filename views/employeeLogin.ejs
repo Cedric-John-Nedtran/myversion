@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEAPPS: <%= title%></title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <nav>
@@ -14,18 +15,37 @@
             <form action="/login" method="POST">
               <label for="email">Email: </label>
               <input type="text" id="email" name="email" required>
-              <br> <br>
+              <div class="email error"></div>
+              <br>
+
               <label for="password">Password:</label>
-              <input type="text" id="password" name="password" required>
+              <input type="password" id="password" name="password" required>
+              <div class="password error"></div>
+
             
               <a href="/employee/signup"> Sign-up</a>
               <button>Log-in</button> 
 
               <p> Not an Employee?</p>
               <a href="/admin/login"> Log-in as Admin</a>
+              <br>
               <a href="/user/login"> Log-in as User</a>
             </form>
           </div>
+
+          <script>
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (e)=>{
+              e.preventDefault();
+
+              //get the values
+              const email = form.email.value;
+              const password = form.password.value;
+
+              console.log(email, password);
+            });
+          </script>
+
           <footer> Copyright &copy; Service Economy Application Incorporated</footer>
         </body>
     </html>

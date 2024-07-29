@@ -13,7 +13,7 @@ const employeeRoutes = require('./routes/employeeRoutes');
 const app = express();
 
 //middleware
-app.use(express.json())
+app.use(express.json());
 app.use(express.static('public'));      // to access the public folder for the css and images
 
 // view engine
@@ -40,7 +40,7 @@ app.use((req, res, next) => {
 });
 
 //routes
-app.get('/', (req, res)=>{          //blank link leads to the sign up page
+app.get('/', (req, res)=>{          //blank link leads to the user sign up page
     res.redirect('/user/login');
 })
 

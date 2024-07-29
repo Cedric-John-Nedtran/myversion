@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEAPPS: <%= title%></title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <nav>
@@ -30,14 +31,16 @@
 
               <label for="email">Email </label>
               <input type="text" id="email" name="email" required>
+              <div class="email error"></div>
               <br> <br>
 
               <label for="password">Password: </label>
-              <input type="text" id="password" name="password" required>
+              <input type="password" id="password" name="password" required>
+              <div class="password error"></div>
               <br> <br>
 
-              <label for="confirm">Confirm Password: </label>
-              <input type="text" id="confirmpass" name="confirmpass" required>
+              <label for="confirmpass">Confirm Password: </label>
+              <input type="password" id="confirmpass" name="confirmpass" required>
 
               <label for="mobilenum">Mobile Phone </label>
               <input type="text" id="mobilenum" name="mobilenum" required>
@@ -46,6 +49,25 @@
               <button>Create Account</button> 
             </form>
           </div>
+
+          <script>
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (e)=>{
+              e.preventDefault();
+
+              //get the values
+              const firstname = form.firstname.value;
+              const middlename = form.middlename.value;
+              const lastname = form.lastname.value;
+              const suffix = form.suffix.value;
+              const email = form.email.value;
+              const password = form.password.value;
+              const mobilenum = form.mobilenum.value;
+
+              console.log(firstname, middlename, lastname, suffix, email, password, mobilenum);
+            });
+          </script>
+
           <footer> Copyright &copy; Service Economy Application Incorporated</footer>
         </body>
     </html>
